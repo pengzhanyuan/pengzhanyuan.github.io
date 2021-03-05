@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>彭占元</title>
+  
+  <subtitle>吃葡萄不吐葡萄皮</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://pengzhanyuan.github.io/"/>
+  <updated>2021-03-05T09:40:08.846Z</updated>
+  <id>http://pengzhanyuan.github.io/</id>
+  
+  <author>
+    <name>pzy</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jsonb的遍历</title>
+    <link href="http://pengzhanyuan.github.io/json/jsonb%E7%9A%84%E9%81%8D%E5%8E%86/"/>
+    <id>http://pengzhanyuan.github.io/json/jsonb%E7%9A%84%E9%81%8D%E5%8E%86/</id>
+    <published>2021-03-05T09:14:09.000Z</published>
+    <updated>2021-03-05T09:40:08.846Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;插入测试数据&quot;&gt;&lt;a href=&quot;#插入测试数据&quot; class=&quot;headerlink&quot; title=&quot;插入测试数据&quot;&gt;&lt;/a&gt;插入测试数据&lt;/h1&gt;&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs applescript&quot;&gt;create table test_jsonb(&lt;span class=&quot;hljs-built_in&quot;&gt;id&lt;/span&gt; serial primary key,msg jsonb);&lt;br&gt;insert &lt;span class=&quot;hljs-keyword&quot;&gt;into&lt;/span&gt; test_jsonb VALUES (&lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;,&amp;#x27;&amp;#123;&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;:&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;, &lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;b&amp;quot;&lt;/span&gt;:&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;&amp;#125;&amp;#x27;);&lt;br&gt;insert &lt;span class=&quot;hljs-keyword&quot;&gt;into&lt;/span&gt; test_jsonb values( &lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt;,&amp;#x27;&amp;#123;&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;RootModule&amp;quot;&lt;/span&gt;:&amp;#123;&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;path&amp;quot;&lt;/span&gt;:[&lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;],&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;:&amp;#123;&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;ModuleBase1&amp;quot;&lt;/span&gt;:&amp;#123;&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;40640&lt;/span&gt;,&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;humanstring&amp;quot;&lt;/span&gt;:&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;40640&amp;quot;&lt;/span&gt;&amp;#125;&amp;#125;&amp;#125;&amp;#125;&amp;#x27;);&lt;br&gt;&lt;br&gt;my_testdb=&lt;span class=&quot;hljs-comment&quot;&gt;#  select * from test_jsonb;&lt;/span&gt;&lt;br&gt; &lt;span class=&quot;hljs-built_in&quot;&gt;id&lt;/span&gt; |                                               msg                                                &lt;br&gt;&lt;span class=&quot;hljs-comment&quot;&gt;----+--------------------------------------------------------------------------------------------------&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt; | &amp;#123;&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;: &lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;, &lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;b&amp;quot;&lt;/span&gt;: &lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;&amp;#125;&lt;br&gt;  &lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt; | &amp;#123;&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;RootModule&amp;quot;&lt;/span&gt;: &amp;#123;&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;path&amp;quot;&lt;/span&gt;: [&lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;], &lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;: &amp;#123;&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;ModuleBase1&amp;quot;&lt;/span&gt;: &amp;#123;&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;40640&lt;/span&gt;, &lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;humanstring&amp;quot;&lt;/span&gt;: &lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;40640&amp;quot;&lt;/span&gt;&amp;#125;&amp;#125;&amp;#125;&amp;#125;&lt;br&gt;(&lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt; rows)&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="json" scheme="http://pengzhanyuan.github.io/categories/json/"/>
+    
+    
+      <category term="PostgreSQL" scheme="http://pengzhanyuan.github.io/tags/PostgreSQL/"/>
+    
+      <category term="jsonb" scheme="http://pengzhanyuan.github.io/tags/jsonb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://pengzhanyuan.github.io/uncategorized/hello-world/"/>
+    <id>http://pengzhanyuan.github.io/uncategorized/hello-world/</id>
+    <published>2021-03-05T09:04:55.288Z</published>
+    <updated>2020-08-04T03:05:29.000Z</updated>
+    
+    <summary type="html">
+    
+       
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
